@@ -7,7 +7,7 @@ version: 2
 sources:
   - name: TPCH_SF1
     database: SNOWFLAKE_SAMPLE_DATA
-    schema: TPCDS_SF10TCL
+    schema: TPCH_SF1
 
     tables:
       - name: STG_CUSTOMER
