@@ -6,22 +6,22 @@
 
 WITH supplier_source AS (
     SELECT
-        S_SUPPKEY,
-        S_NAME,
-        S_ADDRESS,
-        S_NATIONKEY,
-        S_PHONE,
-        S_ACCTBAL,
-        S_COMMENT
+        S_SUPPKEY AS SUPPLIERKEY,
+        S_NAME AS SUPPLIERNAME,
+        S_ADDRESS AS ADDRESS,
+        S_NATIONKEY AS NATIONKEY,
+        S_PHONE AS PHONE,
+        S_ACCTBAL AS ACCOUNTBALANCE,
+        S_COMMENT AS COMMENT
     FROM {{ source('TPCH_SF1', 'SUPPLIER') }}
 ),
 
 stg_supplier AS (
     SELECT
-        S_SUPPKEY AS SUPPLIERKEY,
-        TRIM(S_NAME) AS SUPPLIERNAME,
-        TRIM(S_ADDRESS) AS ADDRESS,
-        S_NATIONKEY AS NATIONKEY,
+        SUPPLIERKEY,
+        TRIM(SUPPLIERNAME),
+        TRIM(ADDRESS),
+        NATIONKEY,
         REGEXP_REPLACE(S_PHONE, '[^0-9]', '') AS PHONENUMBER,
         ROUND(S_ACCTBAL, 2) AS ACCOUNTBALANCE,
         UPPER(S_COMMENT) AS COMMENT,
