@@ -9,7 +9,7 @@ region_source AS (
     FROM {{ source('TPCH_SF1', 'REGION') }}
 ),
 
-stg_region1 AS (
+stg_region AS (
     SELECT
         REGIONKEY,
         REGION_NAME,
