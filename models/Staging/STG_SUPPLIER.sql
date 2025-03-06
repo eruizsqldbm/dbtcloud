@@ -6,14 +6,14 @@
 
 WITH supplier_source AS (
     SELECT
-        S_SUPPKEY AS SUPPLIERKEY,
-        S_NAME AS SUPPLIERNAME,
-        S_ADDRESS AS ADDRESS,
-        S_NATIONKEY AS NATIONKEY,
-        S_PHONE AS PHONE,
-        S_ACCTBAL AS ACCOUNTBALANCE,
-        S_COMMENT AS COMMENT
-    FROM {{ source('TPCH_SF1', 'STG_SUPPLIER') }}
+        S_SUPPKEY,
+        S_NAME,
+        S_ADDRESS,
+        S_NATIONKEY,
+        S_PHONE,
+        S_ACCTBAL,
+        S_COMMENT
+    FROM {{ source('TPCH_SF1', 'SUPPLIER') }}
 ),
 
 stg_supplier AS (
