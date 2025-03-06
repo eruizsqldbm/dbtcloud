@@ -18,7 +18,7 @@ WITH supplier_source AS (
 
 stg_supplier AS (
     SELECT
-        SUPPLIERKEY,
+        S_SUPPKEY AS SUPPLIERKEY,
         TRIM(SUPPLIERNAME) AS SUPPLIERNAME,
         TRIM(ADDRESS) AS ADDRESS,
         NATIONKEY,
