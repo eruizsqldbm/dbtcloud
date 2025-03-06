@@ -19,7 +19,7 @@ models:
       - type: foreign_key
         columns:
           - C_NATIONKEY
-        expression: STG_NATION (N_NATIONKEY)
+        expression: STG_NATION (NATIONKEY)
         name: FK_CUSTOMER_NATION
     columns:
       - name: C_CUSTKEY
@@ -152,26 +152,26 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - N_NATIONKEY
+          - NATIONKEY
         name: PK_NATION
       - type: foreign_key
         columns:
-          - N_REGIONKEY
+          - REGIONKEY
         expression: STG_REGION (R_REGIONKEY)
         name: FK_NATION_REGION
     columns:
-      - name: N_NATIONKEY
+      - name: NATIONKEY
         data_type: int
         description: Primary key for the nation
         constraints:
           - type: not_null
-      - name: N_NAME
+      - name: NAME
         data_type: string
         description: Name of the nation
-      - name: N_REGIONKEY
+      - name: REGIONKEY
         data_type: int
         description: Foreign key referencing the region
-      - name: N_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the nation
       - name: LOAD_TIMESTAMP
@@ -365,7 +365,7 @@ models:
       - type: foreign_key
         columns:
           - NATIONKEY
-        expression: STG_NATION (N_NATIONKEY)
+        expression: STG_NATION (NATIONKEY)
         name: FK_SUPPLIER_NATION
     columns:
       - name: SUPPLIERKEY
