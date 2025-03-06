@@ -15,9 +15,9 @@ WITH nation_source AS (
 
 stg_nation AS (
     SELECT
-        N_NATIONKEY,
+        N_NATIONKEY AS NATIONKEY,
         TRIM(N_NAME) AS NATION_NAME,
-        N_REGIONKEY,
+        N_REGIONKEY AS REGIONKEY,
         UPPER(TRIM(N_COMMENT)) AS COMMENT,
         CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
     FROM nation_source
