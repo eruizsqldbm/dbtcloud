@@ -1,3 +1,8 @@
+{{ config(
+    materialized='table',
+    persist_docs={"relation": true, "columns": true}
+) }}
+
 WITH customer_source AS (
     SELECT
         CUSTKEY,

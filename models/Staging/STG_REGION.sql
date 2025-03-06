@@ -1,4 +1,7 @@
-
+{{ config(
+    materialized='table',
+    persist_docs={"relation": true, "columns": true}
+) }}
 
 region_source AS (
     SELECT

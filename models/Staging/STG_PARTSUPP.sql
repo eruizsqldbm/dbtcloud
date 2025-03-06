@@ -1,3 +1,8 @@
+{{ config(
+    materialized='table',
+    persist_docs={"relation": true, "columns": true}
+) }}
+
 WITH partsupp_source AS (
     SELECT
         PARTKEY,
