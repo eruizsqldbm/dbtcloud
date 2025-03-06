@@ -6,25 +6,25 @@
 
 WITH supplier_source AS (
     SELECT
-        S_SUPPKEY AS SUPPLIERKEY,
-        S_NAME AS SUPPLIERNAME,
-        S_ADDRESS AS ADDRESS,
-        S_NATIONKEY AS NATIONKEY,
-        S_PHONE AS PHONE,
-        S_ACCTBAL AS ACCOUNTBALANCE,
-        S_COMMENT AS COMMENT
+        S_SUPPKEY,
+        S_NAME,
+        S_ADDRESS,
+        S_NATIONKEY,
+        S_PHONE,
+        S_ACCTBAL,
+        S_COMMENT
     FROM {{ source('TPCH_SF1', 'SUPPLIER') }}
 ),
 
 stg_supplier AS (
     SELECT
-        SUPPLIERKEY,
-        TRIM(SUPPLIERNAME),
-        TRIM(ADDRESS),
-        NATIONKEY,
-        PHONE,
-        ROUND(ACCOUNTBALANCE, 2),
-        UPPER(COMMENT) AS COMMENT,
+        S_SUPPKEY AS SUPPLIERKEY,
+        TRIM(S_NAME) AS SUPPLIERNAME,
+        TRIM(S_ADDRESS) AS ADDRESS,
+        S_NATIONKEY AS NATIONKEY,
+        S_PHONE AS PHONE,
+        ROUND(S_ACCTBAL, 2) AS ACCOUNTBALANCE,
+        UPPER(S_COMMENT) AS COMMENT,
         CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
     FROM supplier_source
 )
