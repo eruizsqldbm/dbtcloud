@@ -14,15 +14,15 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - C_CUSTKEY
+          - CUSTKEY
         name: PK_CUSTOMER
       - type: foreign_key
         columns:
-          - C_NATIONKEY
+          - NATIONKEY
         expression: STG_NATION (NATIONKEY)
         name: FK_CUSTOMER_NATION
     columns:
-      - name: C_CUSTKEY
+      - name: CUSTKEY
         data_type: int
         description: Primary key for the customer
         tests:
@@ -30,28 +30,28 @@ models:
           - not_null
         constraints:
           - type: not_null
-      - name: C_NAME
+      - name: NAME
         data_type: string
         description: Name of the customer
-      - name: C_ADDRESS
+      - name: ADDRESS
         data_type: string
         description: Address of the customer
-      - name: C_NATIONKEY
+      - name: NATIONKEY
         data_type: int
         description: Foreign key referencing the nation
-      - name: C_PHONE
+      - name: PHONE
         data_type: string
         description: Contact phone number of the customer
-      - name: C_ACCTBAL
+      - name: ACCTBAL
         data_type: decimal(12,2)
         description: Account balance of the customer
-      - name: C_MKTSEGMENT
+      - name: MKTSEGMENT
         data_type: string
         description: Market segment classification of the customer
         tests:
           - unique
           - not_null
-      - name: C_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the customer
         tests:
@@ -71,71 +71,71 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - L_ORDERKEY
-          - L_LINENUMBER
+          - ORDERKEY
+          - LINENUMBER
         name: PK_LINEITEM
       - type: foreign_key
         columns:
-          - L_ORDERKEY
-        expression: STG_ORDERS (O_ORDERKEY)
+          - ORDERKEY
+        expression: STG_ORDERS (ORDERKEY)
         name: FK_LINEITEM_ORDERS
       - type: foreign_key
         columns:
-          - L_PARTKEY
-          - L_SUPPKEY
-        expression: STG_PARTSUPP (PS_PARTKEY, PS_SUPPKEY)
+          - PARTKEY
+          - SUPPKEY
+        expression: STG_PARTSUPP (PARTKEY, SUPPKEY)
         name: FK_LINEITEM_PARTSUPP
     columns:
-      - name: L_ORDERKEY
+      - name: ORDERKEY
         data_type: int
         description: Foreign key referencing the order
         constraints:
           - type: not_null
-      - name: L_LINENUMBER
+      - name: LINENUMBER
         data_type: int
         description: Line item number within an order
         constraints:
           - type: not_null
-      - name: L_PARTKEY
+      - name: PARTKEY
         data_type: int
         description: Foreign key referencing the part
-      - name: L_SUPPKEY
+      - name: SUPPKEY
         data_type: int
         description: Foreign key referencing the supplier
-      - name: L_QUANTITY
+      - name: QUANTITY
         data_type: decimal(12,2)
         description: Quantity of the item ordered
-      - name: L_EXTENDEDPRICE
+      - name: EXTENDEDPRICE
         data_type: decimal(12,2)
         description: Extended price of the item (quantity * unit price)
-      - name: L_DISCOUNT
+      - name: DISCOUNT
         data_type: decimal(12,2)
         description: Discount applied to the item
-      - name: L_TAX
+      - name: TAX
         data_type: decimal(12,2)
         description: Tax applied to the item
-      - name: L_RETURNFLAG
+      - name: RETURNFLAG
         data_type: string
         description: Return status of the item
-      - name: L_LINESTATUS
+      - name: LINESTATUS
         data_type: string
         description: Status of the line item
-      - name: L_SHIPDATE
+      - name: SHIPDATE
         data_type: date
         description: Date the item was shipped
-      - name: L_COMMITDATE
+      - name: COMMITDATE
         data_type: date
         description: Date the item was committed for shipping
-      - name: L_RECEIPTDATE
+      - name: RECEIPTDATE
         data_type: date
         description: Date the item was received
-      - name: L_SHIPINSTRUCT
+      - name: SHIPINSTRUCT
         data_type: string
         description: Shipping instructions for the item
-      - name: L_SHIPMODE
+      - name: SHIPMODE
         data_type: string
         description: Shipping mode for the item
-      - name: L_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the line item
       - name: LOAD_TIMESTAMP
@@ -157,7 +157,7 @@ models:
       - type: foreign_key
         columns:
           - REGIONKEY
-        expression: STG_REGION (R_REGIONKEY)
+        expression: STG_REGION (REGIONKEY)
         name: FK_NATION_REGION
     columns:
       - name: NATIONKEY
@@ -188,41 +188,41 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - O_ORDERKEY
+          - ORDERKEY
         name: PK_ORDERS
       - type: foreign_key
         columns:
-          - O_CUSTKEY
-        expression: STG_CUSTOMER (C_CUSTKEY)
+          - CUSTKEY
+        expression: STG_CUSTOMER (CUSTKEY)
         name: FK_ORDERS_CUSTOMER
     columns:
-      - name: O_ORDERKEY
+      - name: ORDERKEY
         data_type: int
         description: Primary key for the order
         constraints:
           - type: not_null
-      - name: O_CUSTKEY
+      - name: CUSTKEY
         data_type: int
         description: Foreign key referencing the customer who placed the order
-      - name: O_ORDERSTATUS
+      - name: ORDERSTATUS
         data_type: string
         description: Status of the order
-      - name: O_TOTALPRICE
+      - name: TOTALPRICE
         data_type: decimal(12,2)
         description: Total price of the order
-      - name: O_ORDERDATE
+      - name: ORDERDATE
         data_type: date
         description: Date when the order was placed
-      - name: O_ORDERPRIORITY
+      - name: ORDERPRIORITY
         data_type: string
         description: Priority of the order
-      - name: O_CLERK
+      - name: CLERK
         data_type: string
         description: Clerk responsible for the order
-      - name: O_SHIPPRIORITY
+      - name: SHIPPRIORITY
         data_type: int
         description: Shipping priority of the order
-      - name: O_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the order
       - name: LOAD_TIMESTAMP
@@ -239,10 +239,10 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - P_PARTKEY
+          - PARTKEY
         name: PK_PART
     columns:
-      - name: P_PARTKEY
+      - name: PARTKEY
         data_type: int
         description: Primary key for the part
         constraints:
@@ -250,25 +250,25 @@ models:
       - name: P_NAME
         data_type: string
         description: Name of the part
-      - name: P_MFGR
+      - name: MFGR
         data_type: string
         description: Manufacturer of the part
-      - name: P_BRAND
+      - name: BRAND
         data_type: string
         description: Brand of the part
-      - name: P_TYPE
+      - name: TYPE
         data_type: string
         description: Type or category of the part
-      - name: P_SIZE
+      - name: SIZE
         data_type: int
         description: Size of the part
-      - name: P_CONTAINER
+      - name: CONTAINER
         data_type: string
         description: Container type used for the part
-      - name: P_RETAILPRICE
+      - name: RETAILPRICE
         data_type: decimal(12,2)
         description: Retail price of the part
-      - name: P_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the part
       - name: LOAD_TIMESTAMP
@@ -285,37 +285,37 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - PS_PARTKEY
-          - PS_SUPPKEY
+          - PARTKEY
+          - SUPPKEY
         name: PK_PARTSUPP
       - type: foreign_key
         columns:
-          - PS_SUPPKEY
+          - SUPPKEY
         expression: STG_SUPPLIER (SUPPLIERKEY)
         name: FK_PARTSUPP_SUPPLIER
       - type: foreign_key
         columns:
-          - PS_PARTKEY
-        expression: STG_PART (P_PARTKEY)
+          - PARTKEY
+        expression: STG_PART (PARTKEY)
         name: FK_PARTSUPP_PART
     columns:
-      - name: PS_PARTKEY
+      - name: PARTKEY
         data_type: int
         description: Foreign key referencing the part
         constraints:
           - type: not_null
-      - name: PS_SUPPKEY
+      - name: SUPPKEY
         data_type: int
         description: Foreign key referencing the supplier
         constraints:
           - type: not_null
-      - name: PS_AVAILQTY
+      - name: AVAILQTY
         data_type: int
         description: Available quantity of the part supplied
-      - name: PS_SUPPLYCOST
+      - name: SUPPLYCOST
         data_type: decimal(12,2)
         description: Cost of supplying the part
-      - name: PS_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the part-supplier relationship
       - name: LOAD_TIMESTAMP
@@ -332,18 +332,18 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - R_REGIONKEY
+          - REGIONKEY
         name: PK_REGION
     columns:
-      - name: R_REGIONKEY
+      - name: REGIONKEY
         data_type: int
         description: Primary key for the region
         constraints:
           - type: not_null
-      - name: R_NAME
+      - name: NAME
         data_type: string
         description: Name of the region
-      - name: R_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the region
       - name: LOAD_TIMESTAMP
