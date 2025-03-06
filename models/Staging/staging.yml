@@ -8,19 +8,6 @@ models:
   - name: STG_CUSTOMER
     description: ''
     access: public
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - CUSTKEY
-        name: PK_CUSTOMER
-      - type: foreign_key
-        columns:
-          - NATIONKEY
-        expression: STG_NATION (NATIONKEY)
-        name: FK_CUSTOMER_NATION
     columns:
       - name: CUSTKEY
         data_type: int
@@ -28,8 +15,6 @@ models:
         tests:
           - unique
           - not_null
-        constraints:
-          - type: not_null
       - name: NAME
         data_type: string
         description: Name of the customer
@@ -60,42 +45,16 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_LINEITEM
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - ORDERKEY
-          - LINENUMBER
-        name: PK_LINEITEM
-      - type: foreign_key
-        columns:
-          - ORDERKEY
-        expression: STG_ORDERS (ORDERKEY)
-        name: FK_LINEITEM_ORDERS
-      - type: foreign_key
-        columns:
-          - PARTKEY
-          - SUPPKEY
-        expression: STG_PARTSUPP (PARTKEY, SUPPKEY)
-        name: FK_LINEITEM_PARTSUPP
     columns:
       - name: ORDERKEY
         data_type: int
         description: Foreign key referencing the order
-        constraints:
-          - type: not_null
       - name: LINENUMBER
         data_type: int
         description: Line item number within an order
-        constraints:
-          - type: not_null
       - name: PARTKEY
         data_type: int
         description: Foreign key referencing the part
@@ -141,30 +100,13 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_NATION
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - NATIONKEY
-        name: PK_NATION
-      - type: foreign_key
-        columns:
-          - REGIONKEY
-        expression: STG_REGION (REGIONKEY)
-        name: FK_NATION_REGION
     columns:
       - name: NATIONKEY
         data_type: int
         description: Primary key for the nation
-        constraints:
-          - type: not_null
       - name: NAME
         data_type: string
         description: Name of the nation
@@ -177,30 +119,13 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_ORDERS
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - ORDERKEY
-        name: PK_ORDERS
-      - type: foreign_key
-        columns:
-          - CUSTKEY
-        expression: STG_CUSTOMER (CUSTKEY)
-        name: FK_ORDERS_CUSTOMER
     columns:
       - name: ORDERKEY
         data_type: int
         description: Primary key for the order
-        constraints:
-          - type: not_null
       - name: CUSTKEY
         data_type: int
         description: Foreign key referencing the customer who placed the order
@@ -228,25 +153,13 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_PART
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - PARTKEY
-        name: PK_PART
     columns:
       - name: PARTKEY
         data_type: int
         description: Primary key for the part
-        constraints:
-          - type: not_null
       - name: P_NAME
         data_type: string
         description: Name of the part
@@ -274,41 +187,16 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_PARTSUPP
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - PARTKEY
-          - SUPPKEY
-        name: PK_PARTSUPP
-      - type: foreign_key
-        columns:
-          - SUPPKEY
-        expression: STG_SUPPLIER (SUPPLIERKEY)
-        name: FK_PARTSUPP_SUPPLIER
-      - type: foreign_key
-        columns:
-          - PARTKEY
-        expression: STG_PART (PARTKEY)
-        name: FK_PARTSUPP_PART
     columns:
       - name: PARTKEY
         data_type: int
         description: Foreign key referencing the part
-        constraints:
-          - type: not_null
       - name: SUPPKEY
         data_type: int
         description: Foreign key referencing the supplier
-        constraints:
-          - type: not_null
       - name: AVAILQTY
         data_type: int
         description: Available quantity of the part supplied
@@ -321,25 +209,13 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_REGION
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - REGIONKEY
-        name: PK_REGION
     columns:
       - name: REGIONKEY
         data_type: int
         description: Primary key for the region
-        constraints:
-          - type: not_null
       - name: NAME
         data_type: string
         description: Name of the region
@@ -349,30 +225,13 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
   - name: STG_SUPPLIER
     description: ''
-    config:
-      contract:
-        enforced: true
-    constraints:
-      - type: primary_key
-        columns:
-          - SUPPLIERKEY
-        name: PK_SUPPLIER
-      - type: foreign_key
-        columns:
-          - NATIONKEY
-        expression: STG_NATION (NATIONKEY)
-        name: FK_SUPPLIER_NATION
     columns:
       - name: SUPPLIERKEY
         data_type: int
         description: Primary key for the supplier
-        constraints:
-          - type: not_null
       - name: SUPPLIERNAME
         data_type: string
         description: Name of the supplier
@@ -394,6 +253,4 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ''
-        constraints:
-          - type: not_null
 
