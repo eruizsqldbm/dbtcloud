@@ -13,7 +13,7 @@ WITH supplier_source AS (
         S_PHONE AS PHONE,
         S_ACCTBAL AS ACCOUNTBALANCE,
         S_COMMENT AS COMMENT
-    FROM {{ source('TPCH_SF1', 'SUPPLIER') }}
+    FROM {{ source('TPCH_SF1', 'STG_SUPPLIER') }}
 ),
 
 stg_supplier AS (
