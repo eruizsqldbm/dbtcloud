@@ -1,0 +1,15 @@
+WITH customer_data AS (
+    SELECT
+        C_CUSTKEY,
+        C_NAME AS CUSTOMERNAME,
+        C_ADDRESS AS ADDRESS,
+        C_NATIONKEY AS NATIONKEY,
+        C_PHONE AS PHONE,
+        C_ACCTBAL AS ACCOUNTBALANCE,
+        C_MKTSEGMENT AS MARKETSEGMENT,
+        C_COMMENT AS COMMENT
+    FROM {{ source('DBT', 'CUSTOMER') }}
+)
+
+SELECT *
+FROM customer_data
