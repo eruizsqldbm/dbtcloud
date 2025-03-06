@@ -10,7 +10,7 @@ sources:
     schema: TPCH_SF1
 
     tables:
-      - name: STG_CUSTOMER
+      - name: CUSTOMER
         description: ''
         columns:
           - name: C_CUSTKEY
@@ -39,7 +39,7 @@ sources:
               - unique
               - not_null
 
-      - name: STG_LINEITEM
+      - name: LINEITEM
         description: ''
         columns:
           - name: L_ORDERKEY
@@ -75,7 +75,7 @@ sources:
           - name: L_COMMENT
             description: Additional comments about the line item
 
-      - name: STG_NATION
+      - name: NATION
         description: ''
         columns:
           - name: N_NATIONKEY
@@ -87,7 +87,7 @@ sources:
           - name: N_COMMENT
             description: Additional comments about the nation
 
-      - name: STG_ORDERS
+      - name: ORDERS
         description: ''
         columns:
           - name: O_ORDERKEY
@@ -109,7 +109,7 @@ sources:
           - name: O_COMMENT
             description: Additional comments about the order
 
-      - name: STG_PART
+      - name: PART
         description: ''
         columns:
           - name: P_PARTKEY
@@ -131,7 +131,7 @@ sources:
           - name: P_COMMENT
             description: Additional comments about the part
 
-      - name: STG_PARTSUPP
+      - name: PARTSUPP
         description: ''
         columns:
           - name: PS_PARTKEY
@@ -145,7 +145,7 @@ sources:
           - name: PS_COMMENT
             description: Additional comments about the part-supplier relationship
 
-      - name: STG_REGION
+      - name: REGION
         description: ''
         columns:
           - name: R_REGIONKEY
@@ -155,7 +155,7 @@ sources:
           - name: R_COMMENT
             description: Additional comments about the region
 
-      - name: STG_SUPPLIER
+      - name: SUPPLIER
         description: ''
         columns:
           - name: S_SUPPKEY
