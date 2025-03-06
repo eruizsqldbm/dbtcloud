@@ -57,6 +57,11 @@ models:
         tests:
           - unique
           - not_null
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_LINEITEM
     description: ''
@@ -133,6 +138,11 @@ models:
       - name: L_COMMENT
         data_type: string
         description: Additional comments about the line item
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_NATION
     description: ''
@@ -164,6 +174,11 @@ models:
       - name: N_COMMENT
         data_type: string
         description: Additional comments about the nation
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_ORDERS
     description: ''
@@ -210,6 +225,11 @@ models:
       - name: O_COMMENT
         data_type: string
         description: Additional comments about the order
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_PART
     description: ''
@@ -251,6 +271,11 @@ models:
       - name: P_COMMENT
         data_type: string
         description: Additional comments about the part
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_PARTSUPP
     description: ''
@@ -293,6 +318,11 @@ models:
       - name: PS_COMMENT
         data_type: string
         description: Additional comments about the part-supplier relationship
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_REGION
     description: ''
@@ -316,6 +346,11 @@ models:
       - name: R_COMMENT
         data_type: string
         description: Additional comments about the region
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
   - name: STG_SUPPLIER
     description: ''
@@ -356,4 +391,9 @@ models:
       - name: COMMENT
         data_type: string
         description: Additional comments about the supplier
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: ''
+        constraints:
+          - type: not_null
 
