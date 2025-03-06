@@ -22,7 +22,7 @@ stg_supplier AS (
         TRIM(SUPPLIERNAME),
         TRIM(ADDRESS),
         NATIONKEY,
-        REGEXP_REPLACE(PHONE '[^0-9]', ''),
+        PHONE,
         ROUND(ACCOUNTBALANCE, 2),
         UPPER(COMMENT) AS COMMENT,
         CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
