@@ -6,7 +6,7 @@
 
 WITH supplier_source AS (
     SELECT
-        S_SUPPKEY,
+        S_SUPPKEY AS SUPPLIERKEY,
         S_NAME AS SUPPLIERNAME,
         S_ADDRESS AS ADDRESS,
         S_NATIONKEY AS NATIONKEY,
@@ -18,7 +18,7 @@ WITH supplier_source AS (
 
 stg_supplier AS (
     SELECT
-        S_SUPPKEY,
+        SUPPLIERKEY,
         TRIM(SUPPLIERNAME),
         TRIM(ADDRESS),
         NATIONKEY,
