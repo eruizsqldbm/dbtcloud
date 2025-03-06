@@ -86,17 +86,17 @@ models:
         description: Foreign key referencing the order
         constraints:
           - type: not_null
+      - name: L_LINENUMBER
+        data_type: int
+        description: Line item number within an order
+        constraints:
+          - type: not_null
       - name: L_PARTKEY
         data_type: int
         description: Foreign key referencing the part
       - name: L_SUPPKEY
         data_type: int
         description: Foreign key referencing the supplier
-      - name: L_LINENUMBER
-        data_type: int
-        description: Line item number within an order
-        constraints:
-          - type: not_null
       - name: L_QUANTITY
         data_type: decimal(12,2)
         description: Quantity of the item ordered
@@ -266,7 +266,7 @@ models:
       - type: foreign_key
         columns:
           - PS_SUPPKEY
-        expression: STG_SUPPLIER (S_SUPPKEY)
+        expression: STG_SUPPLIER (SUPPLIERKEY)
         name: FK_PARTSUPP_SUPPLIER
       - type: foreign_key
         columns:
@@ -325,35 +325,35 @@ models:
     constraints:
       - type: primary_key
         columns:
-          - S_SUPPKEY
+          - SUPPLIERKEY
         name: PK_SUPPLIER
       - type: foreign_key
         columns:
-          - S_NATIONKEY
+          - NATIONKEY
         expression: STG_NATION (N_NATIONKEY)
         name: FK_SUPPLIER_NATION
     columns:
-      - name: S_SUPPKEY
+      - name: SUPPLIERKEY
         data_type: int
         description: Primary key for the supplier
         constraints:
           - type: not_null
-      - name: S_NAME
+      - name: SUPPLIERNAME
         data_type: string
         description: Name of the supplier
-      - name: S_ADDRESS
+      - name: ADDRESS
         data_type: string
         description: Address of the supplier
-      - name: S_NATIONKEY
+      - name: NATIONKEY
         data_type: int
         description: Foreign key referencing the nation
-      - name: S_PHONE
+      - name: PHONE
         data_type: string
         description: Contact phone number of the supplier
-      - name: S_ACCTBAL
+      - name: ACCOUNTBALANCE
         data_type: decimal(12,2)
         description: Account balance of the supplier
-      - name: S_COMMENT
+      - name: COMMENT
         data_type: string
         description: Additional comments about the supplier
 
