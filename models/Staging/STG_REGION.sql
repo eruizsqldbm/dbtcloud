@@ -3,21 +3,20 @@
     persist_docs={"relation": true, "columns": true}
 ) }}
 
-region_source AS (
+WITH region_source AS (
     SELECT
-        REGIONKEY,
-        TRIM(NAME) AS REGION_NAME,
-        UPPER(TRIM(COMMENT)) AS REGION_COMMENT,
-        CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
+	    R_REGIONKEY,
+	    R_NAME,
+	    R_COMMENT
     FROM {{ source('TPCH_SF1', 'REGION') }}
 ),
 
 stg_region AS (
     SELECT
-        REGIONKEY,
-        REGION_NAME,
-        REGION_COMMENT,
-        LOAD_TIMESTAMP
+        R_REGIONKEY AS REGIONKEY,
+        R_NAME AS REGION_NAME,
+        R_COMMENT AS REGION_COMMENT,
+        CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
     FROM region_source
 )
 SELECT *

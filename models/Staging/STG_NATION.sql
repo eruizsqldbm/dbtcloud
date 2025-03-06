@@ -5,22 +5,21 @@
 
 WITH nation_source AS (
     SELECT
-        NATIONKEY,
-        NAME,
-        REGIONKEY,
-        COMMENT,
-        LOAD_TIMESTAMP
-    FROM {{ source('TPCH_SF1', 'REGION') }}
+	    N_NATIONKEY,
+	    N_NAME,
+	    N_REGIONKEY,
+	    N_COMMENT
+    FROM {{ source('TPCH_SF1', 'NATION') }}
 ),
 
 stg_nation AS (
     SELECT
-        NATIONKEY,
-        NAME,
-        REGIONKEY,
-        COMMENT,
-        LOAD_TIMESTAMP
+        N_NATIONKEY AS NATIONKEY,
+	    N_NAME AS NAME,
+	    N_REGIONKEY AS REGIONKEY,
+	    N_COMMENT AS COMMENT,
+        CURRENT_TIMESTAMP AS LOAD_TIMESTAMP        
     FROM nation_source
 )
-SELCT *
+SELECT *
 FROM stg_nation
