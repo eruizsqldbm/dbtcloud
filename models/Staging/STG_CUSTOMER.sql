@@ -14,7 +14,6 @@ WITH customer_source AS (
 	    C_MKTSEGMENT,
 	    C_COMMENT
     FROM {{ source('TPCH_SF1', 'CUSTOMER') }}
-
 ),
 
 stg_customer AS (
