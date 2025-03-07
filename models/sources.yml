@@ -173,7 +173,6 @@ sources:
           - name: S_COMMENT
             description: Additional comments about the supplier
 
-
   - name: STAGING
     database: DBT
     schema: DBT
