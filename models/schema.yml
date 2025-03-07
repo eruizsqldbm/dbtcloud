@@ -252,3 +252,267 @@ models:
       - name: LOAD_TIMESTAMP
         data_type: timestamp_ltz
         description: ""
+
+  - name: DIM_CUSTOMER
+    description: ''
+    columns:
+      - name: CUSTKEY
+        data_type: int
+        description: ''
+      - name: NAME
+        data_type: string
+        description: Name of the customer
+      - name: ADDRESS
+        data_type: string
+        description: Address of the customer
+      - name: NATIONKEY
+        data_type: int
+        description: Foreign key referencing the nation
+      - name: PHONE
+        data_type: string
+        description: Contact phone number of the customer
+      - name: ACCTBAL
+        data_type: decimal(12,2)
+        description: Account balance of the customer
+      - name: MKTSEGMENT
+        data_type: string
+        description: Market segment classification of the customer
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the customer
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: DIM_DATE
+    description: ''
+    columns:
+      - name: DATEKEY
+        data_type: date
+        description: Primary key for the date
+      - name: YEAR
+        data_type: int
+        description: Year of the date
+      - name: QUARTER
+        data_type: int
+        description: Quarter of the date
+      - name: MONTH
+        data_type: int
+        description: Month of the date
+      - name: DAY
+        data_type: int
+        description: Day of the date
+      - name: DAY_OF_WEEK
+        data_type: int
+        description: Day of the week (1=Monday, 7=Sunday)
+      - name: IS_WEEKEND
+        data_type: boolean
+        description: Indicates if the date is a weekend
+
+  - name: DIM_NATION
+    description: ''
+    columns:
+      - name: NATIONKEY
+        data_type: int
+        description: Primary key for the nation
+      - name: NAME
+        data_type: string
+        description: Name of the nation
+      - name: REGIONKEY
+        data_type: int
+        description: Foreign key referencing the region
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the nation
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: DIM_PART
+    description: ''
+    columns:
+      - name: PARTKEY
+        data_type: int
+        description: Primary key for the part
+      - name: P_NAME
+        data_type: string
+        description: Name of the part
+      - name: MFGR
+        data_type: string
+        description: Manufacturer of the part
+      - name: BRAND
+        data_type: string
+        description: Brand of the part
+      - name: TYPE
+        data_type: string
+        description: Type or category of the part
+      - name: SIZE
+        data_type: int
+        description: Size of the part
+      - name: CONTAINER
+        data_type: string
+        description: Container type used for the part
+      - name: RETAILPRICE
+        data_type: decimal(12,2)
+        description: Retail price of the part
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the part
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: DIM_REGION
+    description: ''
+    columns:
+      - name: REGIONKEY
+        data_type: int
+        description: Primary key for the region
+      - name: NAME
+        data_type: string
+        description: Name of the region
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the region
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: DIM_SUPPLIER
+    description: ''
+    columns:
+      - name: SUPPLIERKEY
+        data_type: int
+        description: Primary key for the supplier
+      - name: SUPPLIERNAME
+        data_type: string
+        description: Name of the supplier
+      - name: ADDRESS
+        data_type: string
+        description: Address of the supplier
+      - name: NATIONKEY
+        data_type: int
+        description: Foreign key referencing the nation
+      - name: PHONE
+        data_type: string
+        description: Contact phone number of the supplier
+      - name: ACCOUNTBALANCE
+        data_type: decimal(12,2)
+        description: Account balance of the supplier
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the supplier
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: FACT_LINEITEM
+    description: ''
+    columns:
+      - name: ORDERKEY
+        data_type: int
+        description: Foreign key referencing the order
+      - name: LINENUMBER
+        data_type: int
+        description: Line item number within an order
+      - name: PARTKEY
+        data_type: int
+        description: Primary key for the part
+      - name: CUSTKEY
+        data_type: int
+        description: ''
+      - name: SUPPLIERKEY
+        data_type: int
+        description: Primary key for the supplier
+      - name: DATEKEY
+        data_type: date
+        description: Primary key for the date
+      - name: REGIONKEY
+        data_type: int
+        description: Primary key for the region
+      - name: QUANTITY
+        data_type: decimal(12,2)
+        description: Quantity of the item ordered
+      - name: EXTENDEDPRICE
+        data_type: decimal(12,2)
+        description: Extended price of the item (quantity * unit price)
+      - name: DISCOUNT
+        data_type: decimal(12,2)
+        description: Discount applied to the item
+      - name: TAX
+        data_type: decimal(12,2)
+        description: Tax applied to the item
+      - name: RETURNFLAG
+        data_type: string
+        description: Return status of the item
+      - name: LINESTATUS
+        data_type: string
+        description: Status of the line item
+      - name: SHIPDATE
+        data_type: date
+        description: Date the item was shipped
+      - name: COMMITDATE
+        data_type: date
+        description: Date the item was committed for shipping
+      - name: RECEIPTDATE
+        data_type: date
+        description: Date the item was received
+      - name: SHIPINSTRUCT
+        data_type: string
+        description: Shipping instructions for the item
+      - name: SHIPMODE
+        data_type: string
+        description: Shipping mode for the item
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the line item
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+
+  - name: FACT_ORDERS
+    description: ''
+    columns:
+      - name: ORDERKEY
+        data_type: int
+        description: Primary key for the order
+      - name: CUSTKEY
+        data_type: int
+        description: ''
+      - name: REGIONKEY
+        data_type: int
+        description: Primary key for the region
+      - name: DATEKEY
+        data_type: date
+        description: Primary key for the date
+      - name: PARTKEY
+        data_type: int
+        description: Primary key for the part
+      - name: SUPPLIERKEY
+        data_type: int
+        description: Primary key for the supplier
+      - name: ORDERDATE
+        data_type: date
+        description: Date when the order was placed
+      - name: TOTALPRICE
+        data_type: decimal(12,2)
+        description: Total price of the order
+      - name: ORDERSTATUS
+        data_type: string
+        description: Status of the order
+      - name: ORDERPRIORITY
+        data_type: string
+        description: Priority of the order
+      - name: CLERK
+        data_type: string
+        description: Clerk responsible for the order
+      - name: SHIPPRIORITY
+        data_type: int
+        description: Shipping priority of the order
+      - name: COMMENT
+        data_type: string
+        description: Additional comments about the order
+      - name: LOAD_TIMESTAMP
+        data_type: timestamp_ltz
+        description: Timestamp when the record was loaded
+

@@ -173,3 +173,182 @@ sources:
           - name: S_COMMENT
             description: Additional comments about the supplier
 
+
+  - name: STAGING
+    database: DBT
+    schema: DBT
+
+    tables:
+      - name: STG_CUSTOMER
+        description: ''
+        columns:
+          - name: CUSTKEY
+            description: Primary key for the customer
+            tests:
+              - unique
+              - not_null
+          - name: NATIONKEY
+            description: Foreign key referencing the nation
+          - name: NAME
+            description: Name of the customer
+          - name: ADDRESS
+            description: Address of the customer
+          - name: PHONE
+            description: Contact phone number of the customer
+          - name: ACCTBAL
+            description: Account balance of the customer
+          - name: MKTSEGMENT
+            description: Market segment classification of the customer
+          - name: COMMENT
+            description: Additional comments about the customer
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_LINEITEM
+        description: ''
+        columns:
+          - name: ORDERKEY
+            description: Foreign key referencing the order
+          - name: LINENUMBER
+            description: Line item number within an order
+          - name: PARTKEY
+            description: Foreign key referencing the part
+          - name: SUPPKEY
+            description: Foreign key referencing the supplier
+          - name: QUANTITY
+            description: Quantity of the item ordered
+          - name: EXTENDEDPRICE
+            description: Extended price of the item (quantity * unit price)
+          - name: DISCOUNT
+            description: Discount applied to the item
+          - name: TAX
+            description: Tax applied to the item
+          - name: RETURNFLAG
+            description: Return status of the item
+          - name: LINESTATUS
+            description: Status of the line item
+          - name: SHIPDATE
+            description: Date the item was shipped
+          - name: COMMITDATE
+            description: Date the item was committed for shipping
+          - name: RECEIPTDATE
+            description: Date the item was received
+          - name: SHIPINSTRUCT
+            description: Shipping instructions for the item
+          - name: SHIPMODE
+            description: Shipping mode for the item
+          - name: COMMENT
+            description: Additional comments about the line item
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_NATION
+        description: ''
+        columns:
+          - name: NATIONKEY
+            description: Primary key for the nation
+          - name: NAME
+            description: Name of the nation
+          - name: REGIONKEY
+            description: Foreign key referencing the region
+          - name: COMMENT
+            description: Additional comments about the nation
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_ORDERS
+        description: ''
+        columns:
+          - name: ORDERKEY
+            description: Primary key for the order
+          - name: CUSTKEY
+            description: Foreign key referencing the customer who placed the order
+          - name: ORDERSTATUS
+            description: Status of the order
+          - name: TOTALPRICE
+            description: Total price of the order
+          - name: ORDERDATE
+            description: Date when the order was placed
+          - name: ORDERPRIORITY
+            description: Priority of the order
+          - name: CLERK
+            description: Clerk responsible for the order
+          - name: SHIPPRIORITY
+            description: Shipping priority of the order
+          - name: COMMENT
+            description: Additional comments about the order
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_PART
+        description: ''
+        columns:
+          - name: PARTKEY
+            description: Primary key for the part
+          - name: P_NAME
+            description: Name of the part
+          - name: MFGR
+            description: Manufacturer of the part
+          - name: BRAND
+            description: Brand of the part
+          - name: TYPE
+            description: Type or category of the part
+          - name: SIZE
+            description: Size of the part
+          - name: CONTAINER
+            description: Container type used for the part
+          - name: RETAILPRICE
+            description: Retail price of the part
+          - name: COMMENT
+            description: Additional comments about the part
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_PARTSUPP
+        description: ''
+        columns:
+          - name: PARTKEY
+            description: Foreign key referencing the part
+          - name: SUPPKEY
+            description: Foreign key referencing the supplier
+          - name: AVAILQTY
+            description: Available quantity of the part supplied
+          - name: SUPPLYCOST
+            description: Cost of supplying the part
+          - name: COMMENT
+            description: Additional comments about the part-supplier relationship
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_REGION
+        description: ''
+        columns:
+          - name: REGIONKEY
+            description: Primary key for the region
+          - name: NAME
+            description: Name of the region
+          - name: COMMENT
+            description: Additional comments about the region
+          - name: LOAD_TIMESTAMP
+            description: ''
+
+      - name: STG_SUPPLIER
+        description: ''
+        columns:
+          - name: SUPPLIERKEY
+            description: Primary key for the supplier
+          - name: SUPPLIERNAME
+            description: Name of the supplier
+          - name: ADDRESS
+            description: Address of the supplier
+          - name: NATIONKEY
+            description: Foreign key referencing the nation
+          - name: PHONE
+            description: Contact phone number of the supplier
+          - name: ACCOUNTBALANCE
+            description: Account balance of the supplier
+          - name: COMMENT
+            description: Additional comments about the supplier
+          - name: LOAD_TIMESTAMP
+            description: ''
+
