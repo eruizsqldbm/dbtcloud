@@ -14,7 +14,7 @@ WITH part_source AS (
 	P_CONTAINER,
 	P_RETAILPRICE,
 	P_COMMENT
-    FROM {{ source('TPCH_SF1', 'PART') }} -- Replace with your actual source
+    FROM {{ source('TPCH_SF1', 'PART') }} 
 ),
 
 stg_part AS (
