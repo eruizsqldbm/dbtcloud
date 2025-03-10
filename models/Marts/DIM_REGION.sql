@@ -6,8 +6,8 @@
 WITH STG_REGION AS (
     SELECT
         REGIONKEY,
-        REGION_NAME,
-        REGION_COMMENT,
+        NAME,
+        COMMENT,
         LOAD_TIMESTAMP
     FROM {{ source('STAGING', 'STG_REGION') }}
 ),
@@ -15,8 +15,8 @@ WITH STG_REGION AS (
 DIM_REGION AS (
     SELECT
         REGIONKEY,
-        REGION_NAME,
-        REGION_COMMENT,
+        NAME,
+        COMMENT,
         LOAD_TIMESTAMP
     FROM STG_REGION
 )

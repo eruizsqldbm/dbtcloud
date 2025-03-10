@@ -18,8 +18,8 @@ WITH STG_SUPPLIER AS (
 STG_REGION AS (
     SELECT
         REGIONKEY,
-        REGION_NAME,
-        REGION_COMMENT,
+        NAME,
+        COMMENT,
         LOAD_TIMESTAMP
     FROM {{ source('STAGING', 'STG_REGION') }}
 ),

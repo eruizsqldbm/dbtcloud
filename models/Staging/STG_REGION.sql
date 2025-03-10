@@ -14,8 +14,8 @@ WITH region_source AS (
 stg_region AS (
     SELECT
         R_REGIONKEY AS REGIONKEY,
-        R_NAME AS REGION_NAME,
-        R_COMMENT AS REGION_COMMENT,
+        R_NAME AS NAME,
+        R_COMMENT AS COMMENT,
         CURRENT_TIMESTAMP AS LOAD_TIMESTAMP
     FROM region_source
 )
