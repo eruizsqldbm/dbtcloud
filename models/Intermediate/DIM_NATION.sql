@@ -10,7 +10,7 @@ WITH STG_NATION AS (
         REGIONKEY,
         COMMENT,
         LOAD_TIMESTAMP
-    FROM {{ source('STAGING', 'STG_NATION') }}
+    FROM {{ ref('STG_NATION') }}
 ),
 
 DIM_NATION AS (
