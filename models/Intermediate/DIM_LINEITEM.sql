@@ -21,7 +21,7 @@ WITH stg_lineitem AS (
 	    SHIPINSTRUCT,
 	    SHIPMODE,
 	    COMMENT
-    FROM {{ ref( "STG_LINEITEM" ) }}
+    FROM {{ source('STAGING', 'STG_LINEITEM') }}
 ),
 
 

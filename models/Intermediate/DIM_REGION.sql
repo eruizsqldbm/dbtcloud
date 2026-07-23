@@ -9,7 +9,7 @@ WITH STG_REGION AS (
         NAME,
         COMMENT,
         LOAD_TIMESTAMP
-    FROM {{ ref('STG_REGION') }}
+    FROM {{ source('STAGING', 'STG_REGION') }}
 ),
 
 DIM_REGION AS (

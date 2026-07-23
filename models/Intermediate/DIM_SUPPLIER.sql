@@ -13,7 +13,7 @@ WITH STG_SUPPLIER AS (
         ACCOUNTBALANCE,
         COMMENT,
         LOAD_TIMESTAMP
-    FROM {{ ref('STG_SUPPLIER') }}
+    FROM {{ source('STAGING', 'STG_SUPPLIER') }}
 ),
 
 DIM_SUPPLIER AS (

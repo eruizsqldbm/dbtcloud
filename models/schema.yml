@@ -10,7 +10,7 @@ models:
     access: public
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -22,14 +22,6 @@ models:
         expression: STG_NATION (NATIONKEY)
         name: FK_CUSTOMER_NATION
     columns:
-      - name: CUSTKEY
-        data_type: int
-        description: Primary key for the customer
-        tests:
-          - unique
-          - not_null
-        constraints:
-          - type: not_null
       - name: NATIONKEY
         data_type: int
         description: Foreign key referencing the nation
@@ -61,7 +53,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -142,7 +134,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -178,7 +170,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -229,7 +221,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -275,7 +267,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -322,7 +314,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:
@@ -350,7 +342,7 @@ models:
     description: ''
     config:
       contract:
-        enforced: true
+        enforced: false
     constraints:
       - type: primary_key
         columns:

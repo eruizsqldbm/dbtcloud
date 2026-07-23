@@ -15,7 +15,7 @@ WITH STG_PART AS (
         RETAILPRICE,
         COMMENT,
         LOAD_TIMESTAMP
-    FROM {{ ref('STG_PART') }}
+    FROM {{ source('STAGING', 'STG_PART') }}
 ),
 
 DIM_PART AS (
